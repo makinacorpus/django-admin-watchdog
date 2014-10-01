@@ -1,0 +1,6 @@
+.field-show_message pre, .field-show_request_repr pre {
+    color: #333;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+    margin-left: 7em;
+    padding-left: 30px;
+}
