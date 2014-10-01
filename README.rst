@@ -2,6 +2,12 @@
 Admin watchdog
 ==============
 
+.. image:: https://travis-ci.org/makinacorpus/django-admin-watchdog.png
+    :target: https://travis-ci.org/makinacorpus/django-admin-watchdog
+
+.. image:: https://coveralls.io/repos/makinacorpus/django-admin-watchdog/badge.png
+    :target: https://coveralls.io/r/makinacorpus/django-admin-watchdog
+
 Admin watchdog is a simple Django app to register and view logs in the django admin backoffice.
 
 Quick start
@@ -33,3 +39,21 @@ Quick start
     }
 
 4. Your error logs will now be registered. Visit your admin backoffice to see the log entries.
+
+
+AUTHORS
+=======
+
+* Yann FOUILLAT <yann.fouillat@makina-corpus.com>
+
+|makinacom|_
+
+.. |makinacom| image:: http://depot.makina-corpus.org/public/logo.gif
+.. _makinacom:  http://www.makina-corpus.com
+
+
+=======
+LICENSE
+=======
+
+* GPLv3+

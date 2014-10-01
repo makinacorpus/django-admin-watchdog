@@ -1,0 +1,6 @@
+[report]
+omit =
+     admin_watchdog/tests/*
+     admin_watchdog/migrations/*
+     /home/*/.virtualenvs/*
+     /home/travis/virtualenv/*
