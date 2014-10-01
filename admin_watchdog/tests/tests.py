@@ -59,19 +59,22 @@ class FunctionalTestCase(TestCase):
         """ Test the admin view listing all log entries. """
         response = self.c.get('/admin/admin_watchdog/logentry/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn("DEBUG123", response.content)
-        self.assertIn("shortmessage123", response.content)
-        self.assertNotIn("longer message. 123", response.content)
-        self.assertNotIn("request123", response.content)
+        self.assertIn("DEBUG123", response.content.decode('utf8'))
+        self.assertIn("shortmessage123", response.content.decode('utf8'))
+        self.assertNotIn(
+            "longer message. 123",
+            response.content.decode('utf8')
+        )
+        self.assertNotIn("request123", response.content.decode('utf8'))
 
     def test_log_entry_view(self):
         """ Test the admin view listing a single log entry. """
         response = self.c.get('/admin/admin_watchdog/logentry/1', follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertIn("DEBUG123", response.content)
-        self.assertIn("shortmessage123", response.content)
-        self.assertIn("longer message. 123", response.content)
-        self.assertIn("request123", response.content)
+        self.assertIn("DEBUG123", response.content.decode('utf8'))
+        self.assertIn("shortmessage123", response.content.decode('utf8'))
+        self.assertIn("longer message. 123", response.content.decode('utf8'))
+        self.assertIn("request123", response.content.decode('utf8'))
 
     def test_error_page(self):
         """ Test a page raising an error. A log entry should be created. """

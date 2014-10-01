@@ -14,8 +14,9 @@ class RecordMock(object):
         if request is not None:
             self.request = request
         self.levelname = "ERROR"
-        self.exc_info = (None, self.getMessage(), None)
-        self.exc_text = ""
+        self.exc_info = (None, AttributeError(), None)
+        self.exc_text = None
+        self.stack_info = False
 
     def getMessage(self):
         return "Short Message Mock"
