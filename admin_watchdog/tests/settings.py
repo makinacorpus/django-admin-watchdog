@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django_test.urls'
+ROOT_URLCONF = 'admin_watchdog.tests.urls'
 
 WSGI_APPLICATION = 'django_test.wsgi.application'
 

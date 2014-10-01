@@ -20,7 +20,7 @@ class AdminWatchdogHandler(logging.Handler):
             request_repr = filter.get_request_repr(request)
         except AttributeError:
             request = None
-            request_repr = "unavailable"
+            request_repr = u"unavailable"
 
         LogEntry(
             levelname=record.levelname,

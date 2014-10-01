@@ -5,8 +5,8 @@ Admin watchdog
 .. image:: https://travis-ci.org/makinacorpus/django-admin-watchdog.png
     :target: https://travis-ci.org/makinacorpus/django-admin-watchdog
 
-.. image:: https://coveralls.io/repos/makinacorpus/django-admin-watchdog/badge.png
-    :target: https://coveralls.io/r/makinacorpus/django-admin-watchdog
+.. image:: https://coveralls.io/repos/makinacorpus/django-admin-watchdog/badge.png?branch=master
+    :target: https://coveralls.io/r/makinacorpus/django-admin-watchdog?branch=master
 
 Admin watchdog is a simple Django app to register and view logs in the django admin backoffice.
 
