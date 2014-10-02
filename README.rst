@@ -18,7 +18,7 @@ Quick start
 2. Run `python manage.py migrate` to create the admin watchdog model.
 
 3. Edit your LOGGING settings to use the admin watchdog handler.
-   For example, to replace the default mail handler :
+   For example, to replace the default mail handler::
 
     LOGGING = {
         'version': 1,
@@ -40,6 +40,14 @@ Quick start
 
 4. Your error logs will now be registered. Visit your admin backoffice to see the log entries.
 
+Screenshots
+===========
+
+.. image:: doc/admin_watchdog_home.png
+
+.. image:: doc/admin_watchdog_list.png
+
+.. image:: doc/admin_watchdog_view.png
 
 AUTHORS
 =======
