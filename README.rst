@@ -52,7 +52,7 @@ Screenshots
 AUTHORS
 =======
 
-* Yann FOUILLAT <yann.fouillat@makina-corpus.com>
+* Yann FOUILLAT (alias Gagaro) <yann.fouillat@makina-corpus.com>
 
 |makinacom|_
 
