@@ -1,30 +1,31 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 
 class LogEntry(models.Model):
     class Meta:
-        verbose_name_plural = "LogEntries"
+        verbose_name_plural = _("LogEntries")
 
     when = models.DateTimeField(
-        "When",
+        _("When"),
         auto_now_add=True,
         editable=False,
     )
     levelname = models.CharField(
-        "Level name",
+        _("Level name"),
         max_length=20,
         editable=False,
     )
     shortmessage = models.CharField(
-        "Short message",
+        _("Short message"),
         max_length=256,
         editable=False,
     )
     message = models.TextField(
-        "Message",
+        _("Message"),
         editable=False,
     )
     request_repr = models.TextField(
-        "Request representation",
+        _("Request representation"),
         editable=False,
     )

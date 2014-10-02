@@ -40,6 +40,8 @@ Quick start
 
 4. Your error logs will now be registered. Visit your admin backoffice to see the log entries.
 
+5. You can run the tests by doing `make test`.
+
 Screenshots
 ===========
 
