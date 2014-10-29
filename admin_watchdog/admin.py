@@ -18,6 +18,9 @@ class LogEntryAdmin(admin.ModelAdmin):
         'when', 'levelname', 'shortmessage',
         'show_message', 'show_request_repr'
     )
+    search_fields = (
+        'shortmessage', 'message', 'request_repr',
+    )
 
     def show_message(self, instance):
         return format_html('<pre>{0}</pre>', instance.message)
