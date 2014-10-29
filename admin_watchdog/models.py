@@ -4,7 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 
 class LogEntry(models.Model):
     class Meta:
-        verbose_name_plural = _("LogEntries")
+        verbose_name = _("Log entry")
+        verbose_name_plural = _("Log entries")
 
     when = models.DateTimeField(
         _("When"),
