@@ -6,6 +6,7 @@ class LogEntry(models.Model):
     class Meta:
         verbose_name = _("Log entry")
         verbose_name_plural = _("Log entries")
+        app_label = "admin_watchdog"
 
     when = models.DateTimeField(
         _("When"),
