@@ -1,6 +1,7 @@
 *~
 \#*
 *pyc
+.#*
 
 /dist
 /django_admin_watchdog.egg-info
