@@ -2,8 +2,6 @@ import logging
 
 from django.views.debug import ExceptionReporter, get_exception_reporter_filter
 
-from admin_watchdog.models import LogEntry
-
 
 class AdminWatchdogHandler(logging.Handler):
     """An exception log handler that register exception for the site backend.
@@ -13,6 +11,8 @@ class AdminWatchdogHandler(logging.Handler):
         logging.Handler.__init__(self)
 
     def emit(self, record):
+        from admin_watchdog.models import LogEntry
+
         # Get request specific info (location, ...)
         try:
             request = record.request
