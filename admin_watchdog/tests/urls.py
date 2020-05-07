@@ -1,4 +1,3 @@
-from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 
@@ -6,10 +5,19 @@ def test_view(request):
     raise AttributeError()
 
 
-urlpatterns = patterns(
-    '',
+try:
+    # Django >= 2.0
+    from django.urls import path
 
-    url(r'^admin/', include(admin.site.urls)),
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', test_view),
+    ]
+except ImportError:
+    # Django >= 1.10
+    from django.conf.urls import url, include
 
-    url(r'^$', test_view)
-)
+    urlpatterns = [
+        url(r'^admin/', include(admin.site.urls)),
+        url(r'^$', test_view),
+    ]
