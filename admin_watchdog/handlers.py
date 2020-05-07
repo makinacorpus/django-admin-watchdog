@@ -1,7 +1,5 @@
 import logging
 
-from django.views.debug import get_exception_reporter_filter
-
 
 class AdminWatchdogHandler(logging.Handler):
     """An exception log handler that register exception for the site backend.
