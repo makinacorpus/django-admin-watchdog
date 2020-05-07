@@ -14,13 +14,11 @@ class AdminWatchdogHandler(logging.Handler):
         from admin_watchdog.models import LogEntry
 
         # Get request specific info (location, ...)
-        try:
-            request = record.request
-            filter = get_exception_reporter_filter(request)
-            request_repr = filter.get_request_repr(request)
-        except AttributeError:
-            request = None
+        request = getattr(record, 'request', None)
+        if request is None:
             request_repr = u"unavailable"
+        else:
+            request_repr = repr(request)
 
         LogEntry(
             levelname=record.levelname,

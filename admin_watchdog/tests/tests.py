@@ -45,15 +45,15 @@ class HandlerTestCase(TestCase):
 
 class FunctionalTestCase(TestCase):
     def setUp(self):
-        LogEntry.objects.create(
+        self.logentry = LogEntry.objects.create(
             levelname="DEBUG123",
             shortmessage="shortmessage123",
             message="longer message. 123",
             request_repr="request123",
         )
-        User.objects.create_superuser('admin', '', 'password')
+        user = User.objects.create_superuser('admin', '', 'password')
         self.c = Client()
-        self.c.login(username="admin", password="password")
+        self.c.force_login(user)
 
     def test_log_entries_list_view(self):
         """ Test the admin view listing all log entries. """
@@ -69,7 +69,7 @@ class FunctionalTestCase(TestCase):
 
     def test_log_entry_view(self):
         """ Test the admin view listing a single log entry. """
-        response = self.c.get('/admin/admin_watchdog/logentry/1', follow=True)
+        response = self.c.get('/admin/admin_watchdog/logentry/{}/change/'.format(self.logentry.pk), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn("DEBUG123", response.content.decode('utf8'))
         self.assertIn("shortmessage123", response.content.decode('utf8'))
