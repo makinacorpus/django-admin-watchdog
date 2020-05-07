@@ -30,11 +30,11 @@ install:
 
  - pip install 'coverage>=3,<4'
 
- - pip install pep8
+ - pip install pycodestyle
  - pip install pyflakes
 
 before_script:
-    - "pep8 --ignore=E501 admin_watchdog"
+    - "pycodestyle --ignore=E501 admin_watchdog"
     - pyflakes admin_watchdog
 
 script:

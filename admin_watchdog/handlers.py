@@ -1,6 +1,6 @@
 import logging
 
-from django.views.debug import ExceptionReporter, get_exception_reporter_filter
+from django.views.debug import get_exception_reporter_filter
 
 
 class AdminWatchdogHandler(logging.Handler):
@@ -45,4 +45,3 @@ class AdminWatchdogHandler(logging.Handler):
         html_message = reporter.get_traceback_html()
         text_message = reporter.get_traceback_text()
         """
-
