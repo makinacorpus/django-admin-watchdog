@@ -32,4 +32,5 @@ class LogEntryAdmin(admin.ModelAdmin):
     show_request_repr.short_description = _('Request representation')
     show_request_repr.allow_tags = True
 
+
 admin.site.register(LogEntry, LogEntryAdmin)
