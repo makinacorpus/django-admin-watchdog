@@ -1,4 +1,41 @@
 import logging
+from pprint import pformat
+
+from django.utils.encoding import force_str
+
+
+def build_request_repr(request):
+    """
+    FROM Django 1.8
+
+    Builds and returns the request's representation string. The request's
+    attributes may be overridden by pre-processed values.
+    """
+    # Since this is called as part of error handling, we need to be very
+    # robust against potentially malformed input.
+    try:
+        get = pformat(request.GET)
+    except Exception:
+        get = '<could not parse>'
+    try:
+        post = pformat(request.POST)
+    except Exception:
+        post = '<could not parse>'
+    try:
+        cookies = pformat(request.COOKIES)
+    except Exception:
+        cookies = '<could not parse>'
+    try:
+        meta = pformat(request.META)
+    except Exception:
+        meta = '<could not parse>'
+    return force_str('<%s\npath:%s,\nGET:%s,\nPOST:%s,\nCOOKIES:%s,\nMETA:%s>' %
+                     (request.__class__.__name__,
+                      request.path,
+                      str(get),
+                      str(post),
+                      str(cookies),
+                      str(meta)))
 
 
 class AdminWatchdogHandler(logging.Handler):
@@ -12,11 +49,12 @@ class AdminWatchdogHandler(logging.Handler):
         from admin_watchdog.models import LogEntry
 
         # Get request specific info (location, ...)
-        request = getattr(record, 'request', None)
-        if request is None:
+        try:
+            request = record.request
+            request_repr = build_request_repr(request)
+        except AttributeError:
+            request = None
             request_repr = u"unavailable"
-        else:
-            request_repr = repr(request)
 
         LogEntry(
             levelname=record.levelname,
