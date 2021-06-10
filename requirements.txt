@@ -1,2 +1,2 @@
 pytz
-Django==1.11.29
+Django==2.2.24
