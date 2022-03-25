@@ -10,7 +10,7 @@ Admin watchdog
 
 Admin watchdog is a simple Django app to register and view logs in the django admin backoffice.
 
-Tested with Django 2.0 through 3.0.
+Tested with Django 2.2 through 4.0.
 
 Quick start
 -----------
