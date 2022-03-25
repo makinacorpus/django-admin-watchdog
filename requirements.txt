@@ -1,2 +1,0 @@
-pytz
-Django==2.2.24
