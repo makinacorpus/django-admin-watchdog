@@ -56,12 +56,16 @@ class AdminWatchdogHandler(logging.Handler):
             request = None
             request_repr = u"unavailable"
 
-        LogEntry(
-            levelname=record.levelname,
-            shortmessage=record.getMessage(),
-            message=self.format(record),
-            request_repr=request_repr,
-        ).save()
+        try:
+            LogEntry(
+                levelname=record.levelname,
+                shortmessage=record.getMessage(),
+                message=self.format(record),
+                request_repr=request_repr,
+            ).save()
+        except Exception as e:
+            # We might returning back to this method in case of error and end up in a loop
+            pass
 
         # May be used for more advanced logging
         """
